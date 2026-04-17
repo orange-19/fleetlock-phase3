@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: fleetlock-phase3-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        sync: false
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: SQLALCHEMY_DATABASE_URI
+        sync: false
+      - key: WEATHER_API_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        value: https://fleetlock-ashy.vercel.app

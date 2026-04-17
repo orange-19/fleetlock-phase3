@@ -1,0 +1,8 @@
+Model Metadata
+==============
+path: saved_models/fraud_model.joblib
+format: joblib
+file_size_bytes: 220899
+file_size_mb: 0.21
+model_type: GPSFraudModel
+n_estimators: 300
